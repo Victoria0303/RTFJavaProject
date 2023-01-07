@@ -155,7 +155,7 @@ public class Sql {
         return statement.executeQuery(query).getString(1);
     }
 
-    public String getCountryWithHigherEconomy1() throws SQLException {
+    public String getCountryWithAvgAvgEconomy() throws SQLException {
         List<String> countryByAvg = new ArrayList<>();
         var query = """
             SELECT c.name, h.score + p.family + p.health + p.freedom + p.trust + p.generosity FROM country c
@@ -172,6 +172,8 @@ public class Sql {
         }
         return countryByAvg.get(i / 2);
     }
+
+
 
     public Map<String, Double> getCountriesEconomy() throws SQLException {
         Map<String, Double> economyByCountry = new HashMap<>();
